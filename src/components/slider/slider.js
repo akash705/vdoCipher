@@ -12,7 +12,7 @@ export class slider extends Component{
     }
     handler=null;
     nextSlide=()=>{
-        if( this.props.imagesId ||  this.props.imagesId.length){
+        if( !this.props.imagesId ||  !this.props.imagesId.length){
             return 0;
         }
         this.setState((state)=>{
@@ -21,9 +21,19 @@ export class slider extends Component{
                     activeSlide
                 }
             })
+        this.settingTimeInterval(); 
+    }
+    settingTimeInterval=()=>{
+        clearInterval(this.handler);
+        this.handler=setInterval(data=>{
+            if( this.props.imagesId &&  this.props.imagesId.length){
+                this.nextSlide();
+            }
+        },2000);
     }
     prevSlide=()=>{
         if( !this.props.imagesId ||  !this.props.imagesId.length){
+            console.log(this.props.imagesId)
             return 0;
         }
         this.setState((state)=>{
@@ -32,6 +42,7 @@ export class slider extends Component{
                 activeSlide
             }
         })
+        this.settingTimeInterval();
     }
     loaded=()=>{
     }
@@ -59,11 +70,7 @@ export class slider extends Component{
                 // this.props.dispatchEvent([]);s
             })
         }
-        this.handler=setInterval(data=>{
-            if( this.props.imagesId &&  this.props.imagesId.length){
-                this.nextSlide();
-            }
-        },2000);
+       
     }
     componentWillMount(){
         // clearing up the interval

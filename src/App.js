@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-import { requestGet,requestPost } from './components/request';
-import {requestUrl, imageUrl ,token} from './components/urls';
+import { requestGet } from './components/request';
+import {requestUrl ,token} from './components/urls';
 import Loading from './components/loading/loading';
 import Slider from './components/slider/slider';
 import Hoc from './components/hoc/hoc';
