@@ -57,7 +57,7 @@ export class slider extends Component{
         return (
             <Hoc>
                     <p className="m-0 p-0 title">Avengers Avenue</p>
-                            <div className="slideshow-container">
+                            <div className="`slideshow-container">
                                 {
                                     this.props.imagesId && this.props.imagesId.map((data,index)=>{
                                         return (
