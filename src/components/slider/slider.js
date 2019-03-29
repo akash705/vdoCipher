@@ -10,7 +10,9 @@ export class slider extends Component{
     state={
         activeSlide:0,
     }
+    handler=null;
     nextSlide=()=>{
+       
         this.setState((state)=>{
             var activeSlide=((state.activeSlide+1) <=this.props.imagesId.length-1)?state.activeSlide+1:0;
                 return {
@@ -32,6 +34,7 @@ export class slider extends Component{
     }
     componentDidMount(){
        this.checkForImage();
+       
     }
     checkForImage=()=>{
         const waitingToLoad=this.props.imagesId.map((data,index)=>{
@@ -51,6 +54,15 @@ export class slider extends Component{
                 // this.props.dispatchEvent([]);s
             })
         }
+        this.handler=setInterval(data=>{
+            if( this.props.imagesId &&  this.props.imagesId.length){
+                this.nextSlide();
+            }
+        },2000);
+    }
+    componentWillMount(){
+        // clearing up the interval
+        clearInterval(this.handler);
     }
     render(){
         return (
