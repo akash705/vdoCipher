@@ -1,23 +1,38 @@
 var initialState={
     httpRequest:false,
     error:"",
-    payload:[]
+    imagesId:[]
 };
 
 var reducer=(state=initialState,action)=>{
-    if(action.type=="requestComplete"){
-        console.log('reducer',action);
-        var a={
-            ...state,
-            error:action.payload.error,
-            httpRequest:true,
-            imagesId:action.payload.dataPayload.map(data=>{
-                return {id:data.id,url:'',tryLoading:false}
-            })
+    switch(action.type){
+        case("requestComplete"):{
+                var a={
+                    ...state,
+                    error:action.payload.error,
+                    httpRequest:true,
+                    imagesId:action.payload.dataPayload.map(data=>{
+                        return {id:data.id,url:'',tryLoading:false}
+                    })
+                }
+                return a;
         }
-        console.log(a);
-        return a;
+        case("singleImageLoaded"):{
+            var a={
+                ...state,
+                error:action.payload.error,
+                httpRequest:true,
+                imagesId:action.payload.dataPayload.map(data=>{
+                    return {id:data.id,url:'',tryLoading:false}
+                })
+            }
+            return a;
+        }
+        default:{
+            return state;
+        }
     }
-    return state;
+        
 }
+    
 export default reducer;

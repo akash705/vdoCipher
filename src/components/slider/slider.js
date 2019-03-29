@@ -27,11 +27,8 @@ export class slider extends Component{
         })
     }
     loaded=()=>{
-        console.log('images loaded');
     }
     errorLoading=(index)=>{
-        console.log('unable to load image');
-        console.log(index);
     }
     render(){
         return (
@@ -40,7 +37,7 @@ export class slider extends Component{
                                 {
                                     this.props.imagesId && this.props.imagesId.map((data,index)=>{
                                         return (
-                                            <div key={index} className={(this.state.activeSlide==index)?"mySlides fade active":"mySlides fade"}>
+                                            <div key={data.id} className={(this.state.activeSlide===index)?"mySlides fade active":"mySlides fade"}>
                                                 <img src={data.img || img2} alt="no text" className="slider-img" 
                                                 onLoad={this.loaded} 
                                                 />

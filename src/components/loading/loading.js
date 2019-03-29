@@ -5,8 +5,6 @@ import './loading.css';
 
 export class Loading extends Component{
     componentDidMount(){
-        console.log(this.props.error);
-        console.log(this.props.httpRequest);
     }
     render(){
         return (

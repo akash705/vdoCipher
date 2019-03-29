@@ -9,7 +9,7 @@ import Slider from './components/slider/slider';
 import './App.css';
 
 class App extends Component {
-  x = false;
+  x = true;
   componentDidMount(){
       requestGet({
         url:requestUrl,config:{
