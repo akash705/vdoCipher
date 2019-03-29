@@ -3,7 +3,8 @@
   background:#00897b;
   position: relative;
   height: auto;
-  max-height: 500px;
+  height: 100vh;
+  /* max-height: 500px; */
   display: flex;
   align-items: center;
   justify-content: center;

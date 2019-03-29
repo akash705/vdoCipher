@@ -21,26 +21,15 @@ class App extends Component {
       .then(data=>{
         if(data && data.data){
           this.props.dispatchEvent({dataPayload:data.data});
-          this.loadingSingleImage();
         }else{
           this.props.dispatchEvent({error:true});
         }
       })
       .catch(data=>{
+        console.log(data);
         this.props.dispatchEvent({error:"Network Error Couldn't reach Server"});
       })
       
-  }
-  loadingSingleImage=()=>{
-    requestPost({url:`${imageUrl}vision`,config:{
-      headers:{
-        'Authorization':`Bearer ${token}`
-      }
-    }}).then(data=>{
-      console.log('image Post completed',data);
-    }).catch(data=>{
-      console.log('error',data);
-    })
   }
   render() {
     return ( 
@@ -52,6 +41,7 @@ class App extends Component {
       </div>
     );
   }
+  
 }
 
 var mapProperty=(state)=>{

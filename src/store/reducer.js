@@ -28,6 +28,21 @@ var reducer=(state=initialState,action)=>{
             }
             return a;
         }
+        case("imagesLoaded"):{
+            let img= [...state.imagesId];
+            for(let i of action.dataPayload){
+                img[i.index]={
+                    id:i.data.id,
+                    tryLoading:true,
+                    url:i.data.url
+                }
+            }
+            console.log(img);
+            return {
+                ...state,
+                imagesId:img
+            }   
+        }
         default:{
             return state;
         }
