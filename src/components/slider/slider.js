@@ -2,9 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 
 import './slider.css';
-import img2 from './../../assets/images/image2.jpg';
 import imageLoader from './../singleImageLoader';
-
 import Hoc from './../hoc/hoc';
 
 export class slider extends Component{

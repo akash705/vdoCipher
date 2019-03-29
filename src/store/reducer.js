@@ -37,7 +37,6 @@ var reducer=(state=initialState,action)=>{
                     url:i.data.url
                 }
             }
-            console.log(img);
             return {
                 ...state,
                 imagesId:img
