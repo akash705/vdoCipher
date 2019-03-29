@@ -56,6 +56,7 @@ export class slider extends Component{
     render(){
         return (
             <Hoc>
+                    <p className="m-0 p-0 title">Avengers Avenue</p>
                             <div className="slideshow-container">
                                 {
                                     this.props.imagesId && this.props.imagesId.map((data,index)=>{
@@ -75,8 +76,15 @@ export class slider extends Component{
                                         )
                                     })
                                 }
-                            <a className="prev" href="#" onClick={ this.prevSlide } >&#10094;</a>
-                            <a className="next" href="#" onClick={ this.nextSlide }>&#10095;</a>
+                                <div  className="prev" onClick={ this.prevSlide } >
+                                        <a href="#" >
+                                            
+                                        </a>
+                                </div>
+                                <div  className="next"  onClick={ this.nextSlide } >
+                                    <a href="#"></a>        
+                                </div>
+                            
                             </div>
 
             </Hoc>

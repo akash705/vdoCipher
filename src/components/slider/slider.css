@@ -19,6 +19,12 @@
   height: 100% !important;
   /* error handling */
 }
+p.title{
+  position: absolute;
+  color: white;
+  top: 1%;
+  font-size: 1.5rem;
+}
 
 .slideshow-container {
   height: 100%;
@@ -43,23 +49,28 @@
   top: 50%;
   width: auto;
   padding: 16px;
-  color: white;
   font-weight: bold;
   font-size: 18px;
   user-select: none;
+  background-size: contain !important;
+  background-color: white !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
 
 /* Position the "next button" to the right */
 .next {
   right: 0 !important;
   border-radius: 3px 0 0 3px;
+  background-image:url('https://s3-ap-southeast-1.amazonaws.com/he-public-data/Right%20Control3fc6d2d.png');
 }
 .prev{
   left: 0 !important;
   border-radius: 3px 0 0 3px;
+  background-image:url('https://s3-ap-southeast-1.amazonaws.com/he-public-data/Left%20Control577660a.png');
+  /*  */
 }
 .prev:hover, .next:hover {
-  background-color:white;
   color:black;
 }
 .fade {

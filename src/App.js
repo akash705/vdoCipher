@@ -6,6 +6,7 @@ import { requestGet,requestPost } from './components/request';
 import {requestUrl, imageUrl ,token} from './components/urls';
 import Loading from './components/loading/loading';
 import Slider from './components/slider/slider';
+import Hoc from './components/hoc/hoc';
 import './App.css';
 
 class App extends Component {
@@ -36,7 +37,10 @@ class App extends Component {
       <div className = { (!this.props.error && this.props.httpRequest )?"App":"App loader"  } >
           {
             (!this.props.error && this.props.httpRequest )?
-            <Slider></Slider>:<Loading></Loading>
+            <Hoc>
+              <Slider></Slider>
+            </Hoc>
+            :<Loading></Loading>
           }
       </div>
     );
