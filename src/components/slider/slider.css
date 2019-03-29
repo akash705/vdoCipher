@@ -1,26 +1,25 @@
 .slider-img{
-    width:100%;
+    max-height: inherit;
+}
+.slider-img:hover{
+  filter:brightness(.8);
+  cursor: pointer;
 }
 
-* {box-sizing:border-box}
-
-/* Slideshow container */
 .slideshow-container {
   height: 100%;
+  max-height: inherit;
   width: 100%;
   position: relative;
   margin: auto;
 }
-
-/* Hide the images by default */
 .mySlides {
   display: none;
+  max-height: inherit !important;
 }
 .active{
   display: block;
 }
-
-/* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -42,30 +41,36 @@
   left: 0 !important;
   border-radius: 3px 0 0 3px;
 }
-
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   background-color:white;
   color:black;
 }
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
 .fade {
-  -webkit-animation-name: CustomAnimation;
-  -webkit-animation-duration: 1.5s;
-  animation-name: CustomAnimation;
-  animation-duration: 1.5s;
+  -webkit-animation-name: opacityAnimation;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 1.8s;
+  animation-name: opacityAnimation;
+  animation-duration: 1.8s;
+}
+/* opacityAnimation */
+@-webkit-keyframes opacityAnimation {
+  from {
+    opacity: .5
+  } 
+  to {
+    opacity: 1
+  }
 }
 
+@keyframes opacityAnimation {
+  from {
+    opacity: .5
+  } 
+  to {
+    opacity: 1
+  }
+}
+/* scaling animation */
 @-webkit-keyframes CustomAnimation {
   from {
     transform:scale(.5);
