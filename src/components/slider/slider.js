@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import './slider.css';
 import imageLoader from './../singleImageLoader';
 import Hoc from './../hoc/hoc';
+import actionCreator from './../../store/action-creator';
 
 export class slider extends Component{
     state={
@@ -96,7 +97,7 @@ var mapProp=(state)=>{
 }
 var dispatchEvent=(dispatcher)=>{
     return {
-        dispatchedEvent:(data)=>dispatcher({type:'imagesLoaded',dataPayload:data})
+        dispatchedEvent:(data)=>dispatcher(actionCreator.ImagesLoaded(data))
     }
 }
 export default connect(mapProp,dispatchEvent)(slider);
