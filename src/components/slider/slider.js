@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 
 import './slider.css';
-import img1 from './../../assets/images/img.jpeg';
 import img2 from './../../assets/images/image2.jpg';
 
 import Hoc from './../hoc/hoc';
@@ -22,11 +21,17 @@ export class slider extends Component{
     prevSlide=()=>{
         this.setState((state)=>{
             var activeSlide=(~(state.activeSlide-1))?state.activeSlide-1:this.props.imagesId.length-1;
-            console.log(activeSlide);
             return {
                 activeSlide
             }
         })
+    }
+    loaded=()=>{
+        console.log('images loaded');
+    }
+    errorLoading=(index)=>{
+        console.log('unable to load image');
+        console.log(index);
     }
     render(){
         return (
@@ -36,7 +41,9 @@ export class slider extends Component{
                                     this.props.imagesId && this.props.imagesId.map((data,index)=>{
                                         return (
                                             <div key={index} className={(this.state.activeSlide==index)?"mySlides fade active":"mySlides fade"}>
-                                                <img src={data.img || img2} alt="no text" className="slider-img"/>
+                                                <img src={data.img || img2} alt="no text" className="slider-img" 
+                                                onLoad={this.loaded} 
+                                                />
                                             </div>
                                         )
                                     })
