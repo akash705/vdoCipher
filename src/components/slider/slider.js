@@ -12,7 +12,9 @@ export class slider extends Component{
     }
     handler=null;
     nextSlide=()=>{
-       
+        if( this.props.imagesId ||  this.props.imagesId.length){
+            return 0;
+        }
         this.setState((state)=>{
             var activeSlide=((state.activeSlide+1) <=this.props.imagesId.length-1)?state.activeSlide+1:0;
                 return {
@@ -21,6 +23,9 @@ export class slider extends Component{
             })
     }
     prevSlide=()=>{
+        if( !this.props.imagesId ||  !this.props.imagesId.length){
+            return 0;
+        }
         this.setState((state)=>{
             var activeSlide=(~(state.activeSlide-1))?state.activeSlide-1:this.props.imagesId.length-1;
             return {
