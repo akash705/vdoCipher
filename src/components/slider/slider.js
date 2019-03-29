@@ -70,7 +70,7 @@ export class slider extends Component{
                 // this.props.dispatchEvent([]);s
             })
         }
-       
+        this.settingTimeInterval()
     }
     componentWillMount(){
         // clearing up the interval
