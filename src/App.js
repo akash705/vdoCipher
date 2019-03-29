@@ -1,27 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
+
+import { requestGet,requestPost } from './components/request';
+import {requestUrl, imageUrl ,token} from './components/urls';
 import Loading from './components/loading/loading';
 import Slider from './components/slider/slider';
 import './App.css';
 
 class App extends Component {
+  
   componentDidMount(){
-    console.log(this.props.httpRequest);
-    axios.get('https://www.google.com/').then(data=>{
-      console.log('request completed');
-    },err=>{
-      this.props.dispatchEvent({error:"Error While Loading Page."});
-      console.log('request Error');
-    })
+      requestGet({
+        url:requestUrl,config:{
+        headers:{
+          Authorization:`Bearer ${token}`
+          }
+        } 
+      })
+      .then(data=>{
+        if(data && data.data){
+          this.props.dispatchEvent({dataPayload:data.data});
+        }else{
+          this.props.dispatchEvent({error:true});
+        }
+      })
+      .catch(data=>{
+        this.props.dispatchEvent({error:"Network Error Couldn't reach Server"});
+      })
   }
   render() {
     return ( 
-      <div className = { (!this.props.error && this.props.httpRequest )?"App":"App customBackground"  } >
+      <div className = { (!this.props.error && this.props.httpRequest )?"App":"App loader"  } >
           {
             (!this.props.error && this.props.httpRequest )?
-            <Loading></Loading>:<Slider></Slider>
+            <Slider></Slider>:<Loading></Loading>
           }
       </div>
     );

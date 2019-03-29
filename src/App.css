@@ -1,7 +1,5 @@
 .App {
   text-align: center;
-}
-.App.customBackground{
   background:#00897b;
   position: relative;
   height: auto;
@@ -10,6 +8,10 @@
   align-items: center;
   justify-content: center;
   overflow:hidden;
+}
+.App.loader{
+  height: 100vh!important;
+  max-height: 100vh !important;
 }
 .p-0{
   padding:0!important;

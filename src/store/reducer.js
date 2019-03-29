@@ -11,7 +11,9 @@ var reducer=(state=initialState,action)=>{
             ...state,
             error:action.payload.error,
             httpRequest:true,
-            payload:action.payload.dataPayload
+            imagesId:action.payload.dataPayload.map(data=>{
+                return {id:data,url:'',tryLoading:false}
+            })
         }
         console.log(a);
         return a;
