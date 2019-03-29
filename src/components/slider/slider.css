@@ -2,6 +2,7 @@
     max-height: inherit;
     max-width: 100%;
     background:white;
+    border:1px solid #eee;
 }
 .slide-img-text{
     position: absolute;
